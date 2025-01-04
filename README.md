@@ -8,5 +8,8 @@ This model can be used to detect Hindi and Marathi words in a sentence whether t
 It classifies the sentence word by word.
 
 # How to use:
-run the code in file : Working-code.py
-either in colab or any other ide which supports hugging-face libraries.
+run the code in file : code.py
+Either in colab or any other ide which supports hugging-face libraries.
+or
+visit the live app on streamlit
+https://hindi-marathiclassifiermbert-98ys3e6arkpu7xtskx4rv5.streamlit.app/
