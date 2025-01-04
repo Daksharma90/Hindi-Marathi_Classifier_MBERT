@@ -31,6 +31,7 @@ def label_sentence(sentence):
 # Streamlit UI
 st.title("Hindi-Marathi Language Classifier")
 st.write("Identify each word in a sentence as either **Hindi** or **Marathi**.")
+st.write("Use language or words which contains hindi and marathi words only preferred in ramanized form, for e.g kai zala, mera naam daksh aahe.")
 
 # Input Text Box
 sentence = st.text_input("Enter a sentence:")
