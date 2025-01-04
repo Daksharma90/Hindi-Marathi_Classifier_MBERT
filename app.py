@@ -28,6 +28,15 @@ def label_sentence(sentence):
     labeled_words = [(word, predict_language(word)) for word in words]
     return labeled_words
 
+# Calculate percentage of Hindi and Marathi words
+def calculate_percentages(labeled_words):
+    total_words = len(labeled_words)
+    hindi_count = sum(1 for _, label in labeled_words if label == 'Hindi')
+    marathi_count = total_words - hindi_count
+    hindi_percentage = (hindi_count / total_words) * 100 if total_words > 0 else 0
+    marathi_percentage = (marathi_count / total_words) * 100 if total_words > 0 else 0
+    return hindi_percentage, marathi_percentage
+
 # Streamlit UI
 st.title("Hindi-Marathi Language Classifier")
 st.write("Identify each word in a sentence as either **Hindi** or **Marathi**.")
@@ -42,3 +51,8 @@ if sentence:
     labeled_sentence = label_sentence(sentence)
     for word, label in labeled_sentence:
         st.write(f"**{word}** : {label}")
+
+    st.subheader("Language Percentages:")
+    hindi_percentage, marathi_percentage = calculate_percentages(labeled_sentence)
+    st.write(f"**Hindi:** {hindi_percentage:.2f}%")
+    st.write(f"**Marathi:** {marathi_percentage:.2f}%")
